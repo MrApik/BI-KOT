@@ -90,6 +90,7 @@ class PriorityQueue(vararg element: Double, var maxSize: Int = 1000) : Queue<Dou
 
     override fun isEmpty(): Boolean = size == 0
 
+    fun sort() = heapSort(dataBuffer, lastInd)
 
     override fun poll(): Double? {
         return try {
@@ -160,6 +161,14 @@ class PriorityQueue(vararg element: Double, var maxSize: Int = 1000) : Queue<Dou
         fun buildHeap(dataBuffer: Array<Double>, lastInd: Int) {
             for (topInd in lastInd downTo 0)
                 repairTop(topInd, dataBuffer, lastInd)
+        }
+
+        fun heapSort(dataBuffer: Array<Double>, lastInd: Int) {
+            buildHeap(dataBuffer, lastInd)
+            for (i in lastInd downTo 0) {
+                swap(0, i, dataBuffer)
+                repairTop(0, dataBuffer, i - 1)
+            }
         }
 
     }

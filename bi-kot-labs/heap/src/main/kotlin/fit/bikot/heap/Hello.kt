@@ -5,16 +5,20 @@ fun main() {
 
     println(pq)
 
-    for (e in pq) println(e)
-
-    pq.add(1.1)
-    pq.add(1111.1)
+    pq.sort()
 
     println(pq)
 
-    while (!pq.isEmpty()) {
-        println(pq.poll())
-        println(pq)
-    }
+//    for (e in pq) println(e)
+//
+//    pq.add(1.1)
+//    pq.add(1111.1)
+//
+//    println(pq)
+//
+//    while (!pq.isEmpty()) {
+//        println(pq.poll())
+//        println(pq)
+//    }
 
 }
