@@ -15,7 +15,7 @@ class PriorityQueue(vararg element: Double, var maxSize: Int = 1000) : Queue<Dou
         buildHeap(dataBuffer, lastInd)
     }
 
-    private val lastInd : Int
+    private val lastInd: Int
         get() = size - 1
 
     private var _size = element.size
@@ -45,7 +45,7 @@ class PriorityQueue(vararg element: Double, var maxSize: Int = 1000) : Queue<Dou
     }
 
     override fun iterator(): MutableIterator<Double> =
-        object: MutableIterator<Double> {
+        object : MutableIterator<Double> {
             var curr = 0
 
             override fun hasNext(): Boolean = curr < lastInd
@@ -130,12 +130,13 @@ class PriorityQueue(vararg element: Double, var maxSize: Int = 1000) : Queue<Dou
     companion object {
         fun leftChildInd(parentInd: Int) = parentInd * 2 + 1
 
-        fun parentInd(childInt : Int) = (childInt - 1) / 2
+        fun parentInd(childInt: Int) = (childInt - 1) / 2
         fun swap(i: Int, j: Int, dataBuffer: Array<Double>) {
             val tmp = dataBuffer[i]
             dataBuffer[i] = dataBuffer[j]
             dataBuffer[j] = tmp
         }
+
         fun repairTop(parentInd: Int, dataBuffer: Array<Double>, lastInd: Int) {
             if (parentInd == lastInd) return
             val leftChildInd = leftChildInd(parentInd)
